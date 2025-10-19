@@ -19,3 +19,8 @@ app.use('/api/accounts', accountRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const db = require('./config/db.config');
+
+db.query('SELECT 1')
+  .then(() => console.log('✅ Connected to MySQL database'))
+  .catch((err) => console.error('❌ Database connection failed:', err));
